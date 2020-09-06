@@ -7,9 +7,9 @@ const packagePath = path.join(process.cwd(), 'package.json');
 
 function Messages(answers) {
     if (answers.style === 'styled-components' && answers.format === 'js') {
-        return console.log('You need install some dependencies: 📌 styled-components 📌');
+        return console.log('You need install some dependencies: 📌 yarn add -D styled-components 📌');
     } else if (answers.style === 'styled-components' && answers.format === 'tsx') {
-        return console.log('You need install some dependencies: 📌 styled-components, @types/styled-components 📌');
+        return console.log('You need install some dependencies: 📌 yarn add -D styled-components @types/styled-components 📌');
     }
 }
 

@@ -26,6 +26,7 @@ function CreateTemplate(name, logic) {
     const logicComponentPath = `${configPath.components}${name}/logic.${format}`;
     const styleComponentPath = `${configPath.components}${name}/style.${styleFormat}`;
     const indexComponentsPath = `${configPath.components}index.${format}`;
+    const interfacesPath = `${configPath.components}${name}/interfaces.tsx`;
 
     const pathFiles = {
         folderComponent: folderComponent,
@@ -34,6 +35,7 @@ function CreateTemplate(name, logic) {
         logic: logicComponentPath,
         style: styleComponentPath,
         indexComponents: indexComponentsPath,
+        interfaces: interfacesPath,
     };
     const inputData = {
         logic: logic,

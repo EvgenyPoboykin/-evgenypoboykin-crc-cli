@@ -40,7 +40,7 @@ async function reactElectronConfig(package, answers) {
 
     contentProject(answers.style, answers.format);
 
-    console.log('You need install some dependencies: 📌 electron, electron-builder, concurrently, cross-env, wait-on 📌');
+    console.log('You need install some dependencies: 📌 yarn add -D electron electron-builder concurrently cross-env wait-on 📌');
 }
 
 module.exports = reactElectronConfig;

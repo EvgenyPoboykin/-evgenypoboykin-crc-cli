@@ -5,6 +5,7 @@ const { index, styleFile } = require('./templates');
 const templatesComponent = require('./templates-component');
 const templatesLogic = require('./templates-logic');
 const templatesIndexComponent = require('./templates-index-components');
+const templatesInterfaces = require('./templates-interfaces');
 
 function Create(pathFiles, inputData) {
     const nameComponent = inputData.name;
@@ -22,6 +23,10 @@ function Create(pathFiles, inputData) {
     const logicLogic = inputData.logic;
     const pathLogic = pathFiles.logic;
     templatesLogic(logicLogic, pathLogic, nameComponent);
+
+    const interfacesFormat = inputData.format;
+    const interfacesPath = pathFiles.interfaces;
+    templatesInterfaces(interfacesFormat, interfacesPath);
 
     // create component Name.js from template component
     const pathComponent = pathFiles.component;

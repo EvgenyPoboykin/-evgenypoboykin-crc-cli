@@ -8,7 +8,7 @@ const SW = require('./components/SW');
 const templatesComponent = require('../contentCreate/templates-component.js');
 const temlateeFormat = require('../contentCreate/templates-format.js');
 const templatesLogic = require('../contentCreate/templates-logic.js');
-const { styleFile, index } = require('../contentCreate/templates.js');
+const { styleFile, index, Interfaces } = require('../contentCreate/templates.js');
 
 const projectPath = path.join(process.cwd(), 'src');
 
@@ -29,6 +29,7 @@ async function contentProject(style, format) {
     const ContentIndex = index('App');
 
     await fs.writeFileSync(`${projectPath}/App/index.${format}`, ContentIndex, 'utf8');
+    await fs.writeFileSync(`${projectPath}/App/interfaces.tsx`, Interfaces(), 'utf8');
 
     templatesLogic(true, `${projectPath}/App/logic.${format}`, 'App');
 
