@@ -1,0 +1,27 @@
+{
+    "name": "@evgenypoboykin/crc-cli",
+    "version": "1.0.2",
+    "description": "Create React Component wyth hooks, logic, styled-component. TS/JS",
+    "bin": {
+        "@evgenypoboykin/crc-cli": "bin/crc-cli",
+        "crc-cli": "bin/crc-cli"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": "Evgeny Poboykin <evgenypoboykin@gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "react",
+        "hooks",
+        "logic",
+        "ts",
+        "js",
+        "styled-component"
+    ],
+    "dependencies": {
+        "arg": "^4.1.3",
+        "esm": "^3.2.25",
+        "inquirer": "^7.3.3"
+    }
+}
