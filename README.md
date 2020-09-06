@@ -16,7 +16,7 @@ crc-cli
 
 ```
 
-## ep-crc-cli.json
+## crc-cli.json
 
 1. "components" - path/to/directory/where/storage/components/
 2. "format" - script format js/tsx
