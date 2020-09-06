@@ -8,7 +8,7 @@ const styleImport = (style) => {
     }
 };
 const Interfaces = () => {
-    return ['interface IContainer{};'].join('\n');
+    return ['export interface IContainer{};'].join('\n');
 };
 
 const styleFile = (style, name) => {
