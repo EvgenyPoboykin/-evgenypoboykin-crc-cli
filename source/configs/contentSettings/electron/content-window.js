@@ -11,8 +11,10 @@ exports.CreateWin = (app) => {
     // определение мониторовб 0 - главный
     const displays = electron.screen.getAllDisplays();
     mainWindow = new BrowserWindow({
-        width: 500,
-        height: 940,
+        width: displays[0].size.width,
+        height: displays[0].size.height,
+        minWidth: 1200,
+        minHeight: 900,
         frame: false,
         resizable: false,
         webPreferences: {
@@ -24,9 +26,9 @@ exports.CreateWin = (app) => {
     ipc(mainWindow, app);
     // выключить при сборки ----------------------------------------------------------- !
     // инструмент разработчика
-    const isDev = process.env.ELECTRON_DEVELOPMENT_MODE;
+    const isDev = process.env.NODE_ENV;
 
-    isDev ? mainWindow.webContents.openDevTools({ mode: 'undocked' }) : null;
+    isDev === 'development' ? mainWindow.webContents.openDevTools({ mode: 'undocked' }) : null;
 
     const localhost = 'http://localhost:3000/';
     const build = ` +
@@ -35,7 +37,7 @@ exports.CreateWin = (app) => {
     '`' +
     `;
 
-    mainWindow.loadURL(isDev ? localhost : build);
+    mainWindow.loadURL(isDev === 'development' ? localhost : build);
 
     const template = [];
     const newMenu = Menu.buildFromTemplate(template);

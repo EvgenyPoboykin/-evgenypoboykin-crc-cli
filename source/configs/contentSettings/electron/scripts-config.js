@@ -6,10 +6,11 @@ function configScript(package) {
             'r-test': 'react-scripts test',
             'r-eject': 'react-scripts eject',
             'electron-start': 'electron . ',
-            'build:mac': 'ELECTRON_DEVELOPMENT_MODE=0 npm run r-build && electron-builder --mac',
-            'build:win': 'ELECTRON_DEVELOPMENT_MODE=0 npm run r-build && electron-builder --win --ia32 --x64',
-            start: 'ELECTRON_DEVELOPMENT_MODE=1 concurrently "cross-env BROWSER=none npm run r-start" "wait-on http://localhost:3000 && npm run electron-start"',
-            build: 'ELECTRON_DEVELOPMENT_MODE=0 npm run r-build && electron-builder --win --ia32 --x64 --mac',
+            mac: 'npm run r-build && electron-builder --mac',
+            win: 'npm run r-build && electron-builder --win --ia32 --x64',
+            lnx: 'npm run r-build && electron-builder --linux',
+            start: 'concurrently "cross-env BROWSER=none NODE_ENV=development npm run r-start" "wait-on http://localhost:3000 && npm run electron-start"',
+            build_all: 'npm run r-build && electron-builder --win --ia32 --x64 --mac --linux',
         };
     }
     return {
@@ -18,10 +19,11 @@ function configScript(package) {
         'r-test': 'react-scripts test',
         'r-eject': 'react-scripts eject',
         'electron-start': 'electron . ',
-        'build:mac': 'ELECTRON_DEVELOPMENT_MODE=0 yarn r-build && electron-builder --mac',
-        'build:win': 'ELECTRON_DEVELOPMENT_MODE=0 yarn r-build && electron-builder --win --ia32 --x64',
-        start: 'ELECTRON_DEVELOPMENT_MODE=1 concurrently "cross-env BROWSER=none yarn r-start" "wait-on http://localhost:3000 && yarn electron-start"',
-        build: 'ELECTRON_DEVELOPMENT_MODE=0 yarn r-build && electron-builder --win --ia32 --x64 --mac',
+        mac: 'yarn r-build && electron-builder --mac',
+        win: 'yarn r-build && electron-builder --win --ia32 --x64',
+        lnx: 'npm run r-build && electron-builder --linux',
+        start: 'concurrently "cross-env BROWSER=none NODE_ENV=development yarn r-start" "wait-on http://localhost:3000 && yarn electron-start"',
+        build_all: 'yarn r-build && electron-builder --win --ia32 --x64 --mac --linux',
     };
 }
 
