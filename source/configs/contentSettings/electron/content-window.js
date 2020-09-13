@@ -26,9 +26,10 @@ exports.CreateWin = (app) => {
     ipc(mainWindow, app);
     // выключить при сборки ----------------------------------------------------------- !
     // инструмент разработчика
-    const isDev = process.env.NODE_ENV;
+    const isDev = process.env.ELECTRON_DEVELOPMENT_MODE;
 
-    isDev === 'development' ? mainWindow.webContents.openDevTools({ mode: 'undocked' }) : null;
+    //{ mode: 'undocked' }
+    isDev ? mainWindow.webContents.openDevTools() : null;
 
     const localhost = 'http://localhost:3000/';
     const build = ` +
@@ -37,7 +38,7 @@ exports.CreateWin = (app) => {
     '`' +
     `;
 
-    mainWindow.loadURL(isDev === 'development' ? localhost : build);
+    mainWindow.loadURL(isDev ? localhost : build);
 
     const template = [];
     const newMenu = Menu.buildFromTemplate(template);
