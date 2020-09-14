@@ -1,7 +1,8 @@
 const indexInPoint = `import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-// import * as serviceWorker from './serviceWorker';
+import './assets/css/index.css';
+// import * as serviceWorker from './helpers/serviceWorker';
 
 ReactDOM.render(
     <React.StrictMode>

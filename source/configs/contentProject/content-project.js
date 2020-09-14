@@ -17,11 +17,14 @@ async function contentProject(style, format) {
     await fs.mkdirSync(`${projectPath}/App`);
     await fs.mkdirSync(`${projectPath}/App/components`);
     await fs.mkdirSync(`${projectPath}/App/state`);
-    await fs.mkdirSync(`${projectPath}/App/assets`);
+    await fs.mkdirSync(`${projectPath}/assets`);
+    await fs.mkdirSync(`${projectPath}/assets/css`);
+    await fs.mkdirSync(`${projectPath}/assets/images`);
+    await fs.mkdirSync(`${projectPath}/helpers`);
 
     await fs.writeFileSync(`${projectPath}/index.js`, indexInPoint, 'utf8');
-    await fs.writeFileSync(`${projectPath}/index.css`, indexCss, 'utf8');
-    await fs.writeFileSync(`${projectPath}/serviceWorker.js`, SW, 'utf8');
+    await fs.writeFileSync(`${projectPath}/assets/css/index.css`, indexCss, 'utf8');
+    await fs.writeFileSync(`${projectPath}/helpers/serviceWorker.js`, SW, 'utf8');
 
     const ContentApp = templatesComponent('App', true, format, style);
     const ContentStyle = styleFile(style, 'App');
