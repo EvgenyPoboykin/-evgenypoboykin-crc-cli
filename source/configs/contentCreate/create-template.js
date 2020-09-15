@@ -4,7 +4,7 @@ const path = require('path');
 const templatesFormat = require('./templates-format');
 const CheckIndexComponents = require('./fucn-check-index-components');
 
-const cliConfig = path.join(process.cwd(), 'ep-crc-cli.json');
+const cliConfig = path.join(process.cwd(), 'crc-cli.json');
 
 var configPath;
 
