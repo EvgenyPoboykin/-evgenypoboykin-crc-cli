@@ -13,10 +13,10 @@ function templatesIndexComponent(indexComponents, nameComponent) {
             // clean export string , replace ''
             let cleanExp = exp.replace(/\s/g, '').split(',');
 
-            console.log(cleanExp);
+            let newArrayComponents = cleanExp.filter((item) => item !== '');
+
             // join cleanExp and name
-            let newExp = [...cleanExp, nameComponent].join(', ');
-            console.log(newExp);
+            let newExp = [...newArrayComponents, nameComponent].join(', ');
             // new import
             let contentImp = `${imp}import ${nameComponent} from './${nameComponent}';`;
             // new export
