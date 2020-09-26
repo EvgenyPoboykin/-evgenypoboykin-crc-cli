@@ -12,8 +12,11 @@ function templatesIndexComponent(indexComponents, nameComponent) {
             let exp = content.split('export {')[1].split('}')[0];
             // clean export string , replace ''
             let cleanExp = exp.replace(/\s/g, '').split(',');
+
+            console.log(cleanExp);
             // join cleanExp and name
-            let newExp = [cleanExp.join(', '), nameComponent].join(', ');
+            let newExp = [...cleanExp, nameComponent].join(', ');
+            console.log(newExp);
             // new import
             let contentImp = `${imp}import ${nameComponent} from './${nameComponent}';`;
             // new export
@@ -23,7 +26,10 @@ function templatesIndexComponent(indexComponents, nameComponent) {
             // write content components/index.js
             fs.writeFileSync(indexComponents, newContent, 'utf8');
         } else {
-            let newContent = [`import ${nameComponent} from './${nameComponent}';`, `export { ${nameComponent} };`].join('\n');
+            let newContent = [
+                `import ${nameComponent} from './${nameComponent}';`,
+                `export { ${nameComponent} };`,
+            ].join('\n');
             fs.writeFileSync(indexComponents, newContent, 'utf8');
         }
     });
