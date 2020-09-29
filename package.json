@@ -1,6 +1,6 @@
 {
     "name": "@evgenypoboykin/crc-cli",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "description": "Create React Component wyth hooks, logic, styled-component. TS/JS",
     "bin": {
         "@evgenypoboykin/crc-cli": "bin/crc-cli",

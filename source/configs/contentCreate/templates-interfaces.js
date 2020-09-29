@@ -2,9 +2,9 @@ const fs = require('fs');
 
 const { Interfaces } = require('./templates');
 
-function templatesInterfaces(format, pathFile) {
+function templatesInterfaces(format, pathFile, name) {
     if (format === 'tsx') {
-        fs.writeFileSync(pathFile, Interfaces(), 'utf8');
+        fs.writeFileSync(pathFile, Interfaces(name), 'utf8');
     }
 }
 

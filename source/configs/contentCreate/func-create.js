@@ -26,7 +26,7 @@ function Create(pathFiles, inputData) {
 
     const interfacesFormat = inputData.format;
     const interfacesPath = pathFiles.interfaces;
-    templatesInterfaces(interfacesFormat, interfacesPath);
+    templatesInterfaces(interfacesFormat, interfacesPath, nameComponent);
 
     // create component Name.js from template component
     const pathComponent = pathFiles.component;

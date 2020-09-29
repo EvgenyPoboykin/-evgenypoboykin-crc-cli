@@ -7,15 +7,15 @@ const styleImport = (style) => {
         return `import './style.scss';`;
     }
 };
-const Interfaces = () => {
-    return ['export interface IContainer{};'].join('\n');
+const Interfaces = (name) => {
+    return [`export interface I${name}{};`, 'export interface IContainer{};'].join('\n');
 };
 
 const styleFile = (style, name) => {
     if (style === 'styled-components') {
         return [
             `import styled from 'styled-components';`,
-            'import {} from "./interfaces";',
+            `import {} from "./interfaces";`,
             '',
             'export const Container = styled.div.attrs({ className: "' + name + '__container" })' + '``;',
         ].join('\n');
@@ -67,9 +67,9 @@ const componentTsWithoutLogic = (name, style) => {
     return [
         `import React, { memo } from 'react';`,
         styleImport(style),
-        'import {} from "./interfaces";',
+        `import { I${name} } from "./interfaces";`,
         '',
-        `const ${name} : React.FC = memo(() => {`,
+        `const ${name} : React.FC<I${name}> = memo(() => {`,
         `    return ${styleTag(style, name)};`,
         `});`,
         `export default ${name};`,
@@ -80,9 +80,9 @@ const componentTsWithLogic = (name, style) => {
         `import React, { memo } from 'react';`,
         `import ${name}_Logic from './logic';`,
         styleImport(style),
-        'import {} from "./interfaces";',
+        `import { I${name} } from "./interfaces";`,
         '',
-        `const ${name} : React.FC = memo(() => {`,
+        `const ${name} : React.FC<I${name}> = memo(() => {`,
         `    const [] = ${name}_Logic();`,
         `    return ${styleTag(style, name)};`,
         `});`,
