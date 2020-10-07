@@ -41,51 +41,51 @@ const index = (name) => {
 
 const componentJsWithoutLogic = (name, style) => {
     return [
-        `import React, { memo } from 'react';`,
+        `import React from 'react';`,
         styleImport(style),
         '',
-        `const ${name} = memo(() => {`,
+        `const ${name} = () => {`,
         `    return ${styleTag(style, name)};`,
-        `});`,
+        `};`,
         `export default ${name};`,
     ].join('\n');
 };
 const componentJsWithLogic = (name, style) => {
     return [
-        `import React, { memo } from 'react';`,
+        `import React from 'react';`,
         `import ${name}_Logic from './logic';`,
         styleImport(style),
         '',
-        `const ${name} = memo(() => {`,
+        `const ${name} = () => {`,
         `    const [] = ${name}_Logic();`,
         `    return ${styleTag(style, name)};`,
-        `});`,
+        `};`,
         `export default ${name};`,
     ].join('\n');
 };
 const componentTsWithoutLogic = (name, style) => {
     return [
-        `import React, { memo } from 'react';`,
+        `import React from 'react';`,
         styleImport(style),
         `import { I${name} } from "./interfaces";`,
         '',
-        `const ${name} : React.FC<I${name}> = memo(() => {`,
+        `const ${name} : React.FC<I${name}> = () => {`,
         `    return ${styleTag(style, name)};`,
-        `});`,
+        `};`,
         `export default ${name};`,
     ].join('\n');
 };
 const componentTsWithLogic = (name, style) => {
     return [
-        `import React, { memo } from 'react';`,
+        `import React from 'react';`,
         `import ${name}_Logic from './logic';`,
         styleImport(style),
         `import { I${name} } from "./interfaces";`,
         '',
-        `const ${name} : React.FC<I${name}> = memo(() => {`,
+        `const ${name} : React.FC<I${name}> = () => {`,
         `    const [] = ${name}_Logic();`,
         `    return ${styleTag(style, name)};`,
-        `});`,
+        `};`,
         `export default ${name};`,
     ].join('\n');
 };
