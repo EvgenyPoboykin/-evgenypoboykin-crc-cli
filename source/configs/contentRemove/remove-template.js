@@ -20,13 +20,13 @@ function RemoveTemplate(name) {
         // find all exports
         let exp = content.split('export {')[1].split('}')[0];
 
-        let prebuildExp = exp.split(name).join('\n').replace(/\s/g, '');
+        let preBuildExp = exp.split(name).join('\n').replace(/\s/g, '');
 
-        if (prebuildExp !== '') {
+        if (preBuildExp !== '') {
             // find all imports
             let imp = content.split('export {')[0];
 
-            let cleanExp = prebuildExp.replace(/\s/g, '').split(',');
+            let cleanExp = preBuildExp.replace(/\s/g, '').split(',');
 
             let withoutName = imp.split(`import ${name} from './${name}';`);
 

@@ -1,4 +1,4 @@
-function temlateeFormat(style, format) {
+function templatesFormat(style, format) {
     if (style === 'css') {
         return 'css';
     } else if (style === 'scss') {
@@ -8,4 +8,4 @@ function temlateeFormat(style, format) {
     }
 }
 
-module.exports = temlateeFormat;
+module.exports = templatesFormat;
